@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #70c5ce;
+}
+
+.game-container {
+    width: 500px;
+    height: 730px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sky {
+    background-image: url('fb-game-background.png');
+    width: 500px;
+    height: 580px;
+    position: absolute;
+    top: 0;
+}
+
+.ground {
+    background-image: url('bottom-background.png');
+    width: 500px;
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+
+.bird {
+    background-image: url('flappy-bird.png');
+    position: absolute;
+    width: 60px;
+    height: 45px;
+    left: 220px;
+    bottom: 100px;
+}
+
+.obstacle {
+    background-image: url('flappybird-pipe.png');
+    width: 60px;
+    height: 300px;
+    position: absolute;
+    z-index: 2;
+}
+
+.topObstacle {
+    background-image: url('flappybird-pipe.png');
+    transform: rotate(180deg);
+    width: 60px;
+    height: 300px;
+    position: absolute;
+    z-index: 2;
+}
+
+@keyframes slideright {
+    from {
+        background-position: 10000%;
+    }
+    to {
+        background-position: 0%;
+    }
+}
+
+.ground-container {
+    height: 150px;
+    width: 500px;
+    position: absolute;
+    bottom: 0;
+}
+
+.ground-moving {
+    height: 150px;
+    background-image: url('bottom-background.png');
+    background-repeat: repeat-x;
+    animation: slideright 10s infinite linear;
+    width: 100%;
+}
+
+.play-button, .restart-button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.play-button {
+    top: 50%;
+}
+
+.restart-button {
+    top: 60%;
+    display: none;
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: white;
+    z-index: 3;
+}
